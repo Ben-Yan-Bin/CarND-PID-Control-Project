@@ -1,19 +1,16 @@
 # Reflection
 Describe the effect each of the P, I, D components had in your implementation.
-* Proportional component (P): Makes the car steer towards the CTE. It is achieved by multiplying the CTE by P values. It will never reach the CTE but will oscillate around it, resulting in an unsecure behaviour. That's the reason to use I and D temrs.
+* Proportional component (P): Adjust the car steering based on the CTE. It will oscillate when reaching the CTE. That's why components I and D are introduced.
 
-* Integral component (I): Compensates the systematic bias. When the car steering has been incorrectly fixed, lets say to the left, the I term should compensate it. This is achieved acumulating the value of the surface between the car position and the CTE over time, and multipying this value by the I coefficient.
+* Integral component (I): It addresses the systematic bias. When the steering of the car is not accurate, the integral component will detect it and compensate it. But in this simulator, the systematic is quite small, so this component was set to 0.
 
-* Differential component (D): Counter-steers when the car begins to steer toward the CTE. It goes smaller as the car drives towards the CTE, avoiding P component tendency to ring and overshoot the center line.
+* Differential component (D): This component controls the steering towards the differential of the CET, to avoid the steering overshot and keep the drive smooth, especially approaching the center of the track.
 
-Describe how the final hyperparameters were chosen.
-All the parameters has been chosen by the old try/error technique. I've found that the I component was nearly innocuous in my solution, I've setted it to 0 and obtained better results.
-
-The final values are:
+The values of the components are tried out based on the error made, and the final results are:
 
 P = 0.18
 I = 0
-D = 3.0
+D = 2.5
 
 
 # CarND-Controls-PID
