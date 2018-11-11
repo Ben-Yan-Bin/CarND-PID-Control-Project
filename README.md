@@ -8,9 +8,9 @@ Describe the effect each of the P, I, D components had in your implementation.
 
 The values of the components are tried out based on the error made, and the final results are:
 
-P = 0.18
-I = 0
-D = 2.5
+P = 0.18   
+I = 0   
+D = 2.5   
 
 
 # CarND-Controls-PID
